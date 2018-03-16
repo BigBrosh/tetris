@@ -2,11 +2,11 @@ export class UIController {
 	constructor (context) {
 		this.context = context;
 		document.addEventListener('keydown', e => {
-			this.arrowControll(e);
+			this.arrowControl(e);
 		});
 	}
 
-	arrowControll(e) {
+	arrowControl(e) {
 		this.leftArrow(e);
 		this.rightArrow(e);
 	}
