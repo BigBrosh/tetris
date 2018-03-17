@@ -38,7 +38,7 @@ class Tetris {
 
 		this.figures = new Figures(this.context);
 		this.UIController = new UIController(this.context);
-		this.figures.paintFigure(this.figures.currentName);
+		this.figures.paintFigure();
 
 		this.deltaTime = 0;
 		this.lastTime = 0;
@@ -56,8 +56,8 @@ class Tetris {
 		})
 	}
 
-	fillField(name) {
-		this.figures[name].forEach((row, y) => {
+	fillField() {
+		this.figures.currentFigure.forEach((row, y) => {
 			row.forEach((element, x) => {
 				if (element !== 0)
 				{
@@ -80,7 +80,7 @@ class Tetris {
 	drawFigure(time = 0) {
 		this.lineChecker();
 		this.drawField();
-		this.figures.paintFigure('T');
+		this.figures.paintFigure(this.figures.currentFigure);
 
 		this.deltaTime = time - this.lastTime;
 		this.dropCounter += this.deltaTime;
