@@ -1,6 +1,8 @@
 export class UIController {
 	constructor (context) {
 		this.context = context;
+		this.figures = this.context.figures;
+
 		document.addEventListener('keydown', e => {
 			this.arrowControl(e);
 		});
@@ -15,21 +17,30 @@ export class UIController {
 	leftArrow(e) {
 		if (e.keyCode === 37)
 		{
-			if (this.context.figures.offsetX !== 0)
-				this.context.figures.offsetX--;
+			if (this.figures.offsetX !== 0)
+				this.figures.offsetX--;
 		}
 	}
 
 	rightArrow(e) {
 		if (e.keyCode === 39)
 		{
-			if (this.context.figures[this.context.figures.currentName][0].length + this.context.figures.offsetX < this.context.field[0].length)
-				this.context.figures.offsetX++;
+			if (this.figures[this.figures.currentName][0].length + this.figures.offsetX < this.context.field[0].length && this.rightSideChecker())
+				this.figures.offsetX++;
 		}
+	}
+
+	rightSideChecker() {
+		for (let row = 0; row < this.figures[this.figures.currentName].length; row++) {
+			if (this.context.field[row + this.figures.offsetY][this.figures.offsetX + this.figures[this.figures.currentName][row].length - 1] !== 0 &&
+				this.figures[this.figures.currentName][row].length !== 0)
+				return false;
+		}
+		return true;
 	}
 
 	downArrow(e) {
 		if (e.keyCode === 40)
-			this.context.figures.offsetY++;	
+			this.figures.offsetY++;	
 	}
 }
