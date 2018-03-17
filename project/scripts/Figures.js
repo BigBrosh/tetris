@@ -9,6 +9,9 @@ export class Figures {
 					[1, 1, 1],
 					[0, 1, 0]
 		];
+
+		this.figureList = ' T';
+		this.colors = ['black','red'];
 	}
 
 	resetCoordinates() {
@@ -21,7 +24,7 @@ export class Figures {
 			row.forEach((element, x) => {
 				if (element !== 0)
 				{
-					this.context.element.fillStyle = 'red';
+					this.context.element.fillStyle = this.colors[this.figureList.indexOf(name)];
 					this.context.element.fillRect(	x + this.offsetX, 
 													y + this.offsetY, 
 													1, 1);

@@ -50,17 +50,8 @@ class Tetris {
 	drawField() {
 		this.field.forEach((row, y) => {
 			row.forEach((element, x) => {
-				if (element != 0)
-				{
-					this.element.fillStyle = 'red';
+					this.element.fillStyle = this.figures.colors[element];
 					this.element.fillRect(x, y, 1, 1);
-				}
-
-				else
-				{
-					this.element.fillStyle = 'black';
-					this.element.fillRect(x, y, 1, 1);
-				}
 			})
 		})
 	}
