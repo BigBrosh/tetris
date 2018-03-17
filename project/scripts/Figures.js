@@ -27,7 +27,7 @@ export class Figures {
 													1, 1);
 				}
 
-				if (y + this.offsetY + 1 === this.context.field.length || this.context.field[y + this.offsetY + 1][x + this.offsetX] !== 0)
+				if (y + this.offsetY + 1 === this.context.field.length || this.context.field[y + this.offsetY + 1][x + this.offsetX] !== 0 && element !== 0)
 				{
 					this.context.fillField(name);
 					this.resetCoordinates();
