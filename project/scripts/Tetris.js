@@ -47,9 +47,37 @@ class Tetris {
 		this.drawFigure();
 	}
 
+	drawField() {
+		this.field.forEach((row, y) => {
+			row.forEach((element, x) => {
+				if (element != 0)
+				{
+					this.element.fillStyle = 'red';
+					this.element.fillRect(x, y, 1, 1);
+				}
+
+				else
+				{
+					this.element.fillStyle = 'black';
+					this.element.fillRect(x, y, 1, 1);
+				}
+			})
+		})
+	}
+
+	fillField(name) {
+		this.figures[name].forEach((row, y) => {
+			row.forEach((element, x) => {
+				if (element !== 0)
+				{
+					this.field[y + this.figures.offsetY][x + this.figures.offsetX] = element;
+				}
+			});
+		});
+	}
+
 	drawFigure(time = 0) {	
-		this.element.fillStyle = '#000';
-		this.element.fillRect(0, 0, this.wrap.width, this.wrap.height);		
+		this.drawField();
 		this.figures.paintFigure('T');
 
 		this.deltaTime = time - this.lastTime;

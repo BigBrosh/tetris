@@ -9,6 +9,7 @@ export class UIController {
 	arrowControl(e) {
 		this.leftArrow(e);
 		this.rightArrow(e);
+		this.downArrow(e);
 	}
 
 	leftArrow(e) {
@@ -19,5 +20,10 @@ export class UIController {
 	rightArrow(e) {
 		if (e.keyCode === 39)
 			this.context.figures.offsetX++;
+	}
+
+	downArrow(e) {
+		if (e.keyCode === 40)
+			this.context.figures.offsetY++;	
 	}
 }
