@@ -67,7 +67,18 @@ class Tetris {
 		});
 	}
 
-	drawFigure(time = 0) {	
+	lineChecker() {
+		this.field.forEach((row, y) => {
+			if (row.indexOf(0) === -1)
+			{
+				this.field.splice(y, 1);
+				this.field.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+			}				
+		});
+	}
+
+	drawFigure(time = 0) {
+		this.lineChecker();
 		this.drawField();
 		this.figures.paintFigure('T');
 
