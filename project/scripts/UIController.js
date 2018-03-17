@@ -32,8 +32,8 @@ export class UIController {
 
 	rightSideChecker() {
 		for (let row = 0; row < this.figures[this.figures.currentName].length; row++) {
-			if (this.context.field[row + this.figures.offsetY][this.figures.offsetX + this.figures[this.figures.currentName][row].length - 1] !== 0 &&
-				this.figures[this.figures.currentName][row].length !== 0)
+			if (this.figures[this.figures.currentName][row][this.figures[this.figures.currentName][row].length - 1] !== 0 &&
+				this.context.field[row + this.figures.offsetY][this.figures.offsetX + this.figures[this.figures.currentName][row][this.figures[this.figures.currentName][row].length - 1] + 2] !== 0)
 				return false;
 		}
 		return true;
