@@ -14,12 +14,18 @@ export class UIController {
 
 	leftArrow(e) {
 		if (e.keyCode === 37)
-			this.context.figures.offsetX--;
+		{
+			if (this.context.figures.offsetX !== 0)
+				this.context.figures.offsetX--;
+		}
 	}
 
 	rightArrow(e) {
 		if (e.keyCode === 39)
-			this.context.figures.offsetX++;
+		{
+			if (this.context.figures[this.context.figures.currentName][0].length + this.context.figures.offsetX < this.context.field[0].length)
+				this.context.figures.offsetX++;
+		}
 	}
 
 	downArrow(e) {

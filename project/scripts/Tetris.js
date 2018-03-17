@@ -38,7 +38,7 @@ class Tetris {
 
 		this.figures = new Figures(this.context);
 		this.UIController = new UIController(this.context);
-		this.figures.paintFigure('T');
+		this.figures.paintFigure(this.figures.currentName);
 
 		this.deltaTime = 0;
 		this.lastTime = 0;

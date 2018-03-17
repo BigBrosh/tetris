@@ -3,6 +3,7 @@ export class Figures {
 		this.context = context;
 		this.offsetX = 5;
 		this.offsetY = 0;
+		this.currentName = 'T';
 
 		this.T = [
 					[0, 0, 0],
