@@ -58,6 +58,18 @@ export class Figures {
 		this.offsetY = 0;
 	}
 
+	collideField(y, x, element) {
+		if (element !== 0 &&
+			y + this.offsetY === this.context.field.length - 1)
+			return true;
+	}
+
+	collideFigure(y, x, element) {
+		if (element !== 0 &&
+			this.context.field[y + this.offsetY + 1][x + this.offsetX] !== 0)
+			return true;
+	}
+
 	paintFigure() {
 		this.currentFigure.forEach((row, y) => {
 			row.forEach((element, x) => {
@@ -69,7 +81,7 @@ export class Figures {
 													1, 1);
 				}
 
-				if (y + this.offsetY + 1 === this.context.field.length || this.context.field[y + this.offsetY + 1][x + this.offsetX] !== 0 && element !== 0)
+				if (this.collideField(y, x, element) || this.collideFigure(y, x, element))
 				{
 					this.context.fillField();
 					this.randomFigure();
