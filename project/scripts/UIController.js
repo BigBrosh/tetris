@@ -2,16 +2,29 @@ export class UIController {
 	constructor (context) {
 		this.context = context;
 		this.figures = this.context.figures;
-		this.menuButton = document.querySelector(`${this.context.wrapName} .menu_button`);
+		
 		this.menu = document.querySelector(`${this.context.wrapName} .menu_inner`);
-
-		document.addEventListener('keydown', e => {
-			this.arrowControl(e);
-		});
+		this.menuButton = document.querySelector(`${this.context.wrapName} .menu_button`);
+		this.replayButton = document.querySelector(`${this.context.wrapName} .replay`);
+		this.resetScoreButton = document.querySelector(`${this.context.wrapName} .reset_score`);
 
 		this.menuButton.addEventListener('click', () => {
 			this.menuButtonEvent();
 		})
+
+		this.replayButton.addEventListener('click', () => {
+			this.context.replay();
+			this.menuButton.click();
+		})
+
+		this.resetScoreButton.addEventListener('click', () => {
+			this.context.resetHighScore();
+			this.menuButton.click();
+		})
+
+		document.addEventListener('keydown', e => {
+			this.arrowControl(e);
+		});
 	}
 
 	arrowControl(e) {

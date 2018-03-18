@@ -137,6 +137,11 @@ class Tetris {
 		this.showScore();
 	}
 
+	resetHighScore() {
+		this.highScore = 0;
+		localStorage.setItem('highscore', JSON.stringify(this.highScore));
+	}
+
 	replay() {
 		this.field = [
 						[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
