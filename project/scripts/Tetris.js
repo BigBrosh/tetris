@@ -44,7 +44,7 @@ class Tetris {
 		this.dropCounter = 0;
 		this.dropTime = 1200;
 
-		this.highScore = 0;
+		this.getHighScore();
 		this.score = 0;
 		this.scoreWrap = document.querySelector(`.tetris${parent}_score`);
 		this.showScore();
@@ -105,11 +105,26 @@ class Tetris {
 		this.scoreWrap.innerHTML = `High score: ${this.highScore > this.score ? this.highScore : this.score}<br/>Your score: ${this.score}`;
 	}
 
+	getHighScore() {
+		if (localStorage.getItem('highscore'))
+			this.highScore = JSON.parse(localStorage.getItem('highscore'));
+
+		else
+			this.highScore = 0;
+	}
+
+	setHighScore() {
+		localStorage.setItem('highscore', JSON.stringify(this.highScore));
+	}
+
 	increaseScore() {
 		this.score += 10;
 
 		if (this.score > this.highScore)
+		{
 			this.highScore = this.score;
+			this.setHighScore();
+		}
 	}
 
 	resetScore() {
