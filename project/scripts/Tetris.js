@@ -44,6 +44,10 @@ class Tetris {
 		this.lastTime = 0;
 		this.dropCounter = 0;
 		this.dropTime = 1200;
+
+		this.score = 0;
+		this.scoreWrap = document.querySelector(`.tetris${parent}_score`);
+		this.showScore();
 		this.drawFigure();
 	}
 
@@ -73,6 +77,7 @@ class Tetris {
 			{
 				this.field.splice(y, 1);
 				this.field.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+				this.increaseScore();
 			}				
 		});
 	}
@@ -81,6 +86,7 @@ class Tetris {
 		this.lineChecker();
 		this.drawField();
 		this.figures.paintFigure(this.figures.currentFigure);
+		this.showScore();
 
 		this.deltaTime = time - this.lastTime;
 		this.dropCounter += this.deltaTime;
@@ -93,6 +99,18 @@ class Tetris {
 		}
 
 		requestAnimationFrame(this.drawFigure.bind(this));
+	}
+
+	showScore() {
+		this.scoreWrap.innerHTML = `Your score: ${this.score}`;
+	}
+
+	increaseScore() {
+		this.score += 10;
+	}
+
+	resetScore() {
+		this.score = 0;
 	}
 }
 
