@@ -42,9 +42,15 @@ export class Figures {
 					[0, 0, 0]
 		];
 
+		this.L = [
+					[0, 7, 0],
+					[0, 7, 0],
+					[0, 7, 7]
+		];
 
-		this.figureList = 'TZSIJO';
-		this.colors = ['black', 'red', 'orange', 'green', 'purple', 'yellow', 'pink'];
+
+		this.figureList = 'TZSIJOL';
+		this.colors = ['black', 'red', 'orange', 'green', 'purple', 'yellow', 'pink', 'cyan'];
 		this.randomFigure();
 	}
 
