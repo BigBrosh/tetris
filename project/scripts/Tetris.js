@@ -45,6 +45,7 @@ class Tetris {
 		this.dropCounter = 0;
 		this.dropTime = 1200;
 
+		this.highScore = 0;
 		this.score = 0;
 		this.scoreWrap = document.querySelector(`.tetris${parent}_score`);
 		this.showScore();
@@ -102,7 +103,7 @@ class Tetris {
 	}
 
 	showScore() {
-		this.scoreWrap.innerHTML = `Your score: ${this.score}`;
+		this.scoreWrap.innerHTML = `High score: ${this.highScore > this.score ? this.highScore : this.score}<br/>Your score: ${this.score}`;
 	}
 
 	increaseScore() {
