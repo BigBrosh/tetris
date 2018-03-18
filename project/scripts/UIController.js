@@ -26,7 +26,7 @@ export class UIController {
 	rightArrow(e) {
 		if (e.keyCode === 39)
 		{
-			if (this.figures[this.figures.currentName][0].length + this.figures.offsetX < this.context.field[0].length && this.rightSideChecker())
+			if (this.rightSideChecker())
 				this.figures.offsetX++;
 		}
 	}
@@ -41,12 +41,20 @@ export class UIController {
 	}
 
 	rightSideChecker() {
-		for (let row = 0; row < this.figures[this.figures.currentName].length; row++) {
-			if (this.figures[this.figures.currentName][row][this.figures[this.figures.currentName][row].length - 1] !== 0 &&
-				this.context.field[row + this.figures.offsetY][this.figures.offsetX + this.figures[this.figures.currentName][row][this.figures[this.figures.currentName][row].length - 1] + 1] !== 0)
-				return false;
-		}
-		return true;
+		let checker = true;
+
+		this.figures.currentFigure.forEach((row, y) => {
+			row.forEach((element, x) => {
+				if (element !== 0 && this.context.field[y + this.figures.offsetY][x + this.figures.offsetX + 1] !== 0 ||
+					element !== 0 && this.context.field[y + this.figures.offsetY][x + this.figures.offsetX + 1] === undefined)
+				{
+					checker = false;
+					return checker;
+				}
+			});
+		});
+
+		return checker;
 	}
 
 	downArrow(e) {
