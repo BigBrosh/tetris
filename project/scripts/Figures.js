@@ -86,6 +86,9 @@ export class Figures {
 													1, 1);
 				}
 
+				if (this.offsetY === 0 && this.collideFigure(y, x, element))
+					this.context.replay();
+
 				if (this.collideField(y, x, element) || this.collideFigure(y, x, element))
 				{
 					this.context.fillField();
