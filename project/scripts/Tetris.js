@@ -7,6 +7,7 @@ class Tetris {
 		this.context = this;
 		this.wrapName = `.tetris_wrap${parent}`;
 		this.wrap = document.querySelector(`${this.wrapName} .tetris`);
+
 		this.wrap.width = 240;
 		this.wrap.height = 400;
 		this.element = this.wrap.getContext('2d');
@@ -48,6 +49,8 @@ class Tetris {
 		this.getHighScore();
 		this.score = 0;
 		this.scoreWrap = document.querySelector(`${this.wrapName} .tetris_score`);
+		
+		this.drawingChecker = true;
 		this.showScore();
 		this.drawFigure();
 	}
@@ -99,7 +102,8 @@ class Tetris {
 			this.figures.offsetY++;			
 		}
 
-		requestAnimationFrame(this.drawFigure.bind(this));
+		if (this.drawingChecker === true)
+			requestAnimationFrame(this.drawFigure.bind(this));
 	}
 
 	showScore() {

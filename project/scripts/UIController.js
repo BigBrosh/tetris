@@ -2,10 +2,16 @@ export class UIController {
 	constructor (context) {
 		this.context = context;
 		this.figures = this.context.figures;
+		this.menuButton = document.querySelector(`${this.context.wrapName} .menu_button`);
+		this.menu = document.querySelector(`${this.context.wrapName} .menu_inner`);
 
 		document.addEventListener('keydown', e => {
 			this.arrowControl(e);
 		});
+
+		this.menuButton.addEventListener('click', () => {
+			this.menuButtonEvent();
+		})
 	}
 
 	arrowControl(e) {
@@ -98,5 +104,17 @@ export class UIController {
 
 		else if(!this.sideChecker(1))
 			this.figures.offsetX--;
+	}
+
+	menuButtonEvent() {
+		this.menu.classList.toggle('active');
+
+		if (this.menu.classList.contains('active'))
+			this.context.drawingChecker = false;
+		else if (!this.menu.classList.contains('active'))
+		{
+			this.context.drawingChecker = true;
+			this.context.drawFigure();
+		}
 	}
 }
