@@ -17,8 +17,34 @@ export class Figures {
 					[0, 0, 0]
 		];
 
-		this.figureList = 'TZ';
-		this.colors = ['black', 'red', 'orange'];
+		this.S = [
+					[0, 3, 3],
+					[3, 3, 0],
+					[0, 0, 0]
+		];
+
+		this.I = [
+					[0, 4, 0, 0],
+					[0, 4, 0, 0],
+					[0, 4, 0, 0],
+					[0, 4, 0, 0]
+		];
+
+		this.J = [
+					[0, 5, 0],
+					[0, 5, 0],
+					[5, 5, 0]
+		];
+
+		this.O = [
+					[6, 6, 0],
+					[6, 6, 0],
+					[0, 0, 0]
+		];
+
+
+		this.figureList = 'TZSIJO';
+		this.colors = ['black', 'red', 'orange', 'green', 'purple', 'yellow', 'pink'];
 		this.randomFigure();
 	}
 
