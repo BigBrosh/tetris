@@ -33,12 +33,18 @@ export class UIController {
 
 	rotateLeft(e) {
 		if (e.keyCode === 81)
-			this.rotateFigure(0)
+		{
+			this.rotateFigure(0);
+			this.rotateChecker();
+		}
 	}
 
 	rotateRight(e) {
 		if (e.keyCode === 69)
-			this.rotateFigure(1)
+		{
+			this.rotateFigure(1);
+			this.rotateChecker();
+		}
 	}
 
 	sideChecker(side) {
@@ -84,5 +90,13 @@ export class UIController {
 		{
 			figure.reverse();
 		}
+	}
+
+	rotateChecker() {	
+		if(!this.sideChecker(-1))
+			this.figures.offsetX++;
+
+		else if(!this.sideChecker(1))
+			this.figures.offsetX--;
 	}
 }
