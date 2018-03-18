@@ -1,6 +1,8 @@
 body {	
 	font-family: sans-serif;
 	text-align: center;
+	background: #000;
+	color: #fff;
 }
 
 h1 {
@@ -10,4 +12,8 @@ h1 {
 p {
 	margin-top: 2px;
 	margin-bottom: 20px;
+}
+
+canvas {
+	border: 1px solid #fff;
 }

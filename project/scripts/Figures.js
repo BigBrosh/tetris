@@ -49,7 +49,7 @@ export class Figures {
 
 
 		this.figureList = 'TZSIJOL';
-		this.colors = ['black', 'red', 'orange', 'green', 'purple', 'yellow', 'pink', 'cyan'];
+		this.colors = ['black', '#de0000', '#de7c0b', '#06bb06', '#cd1ecd', 'yellow', '#ec5ea2', 'cyan'];
 		this.randomFigure();
 	}
 

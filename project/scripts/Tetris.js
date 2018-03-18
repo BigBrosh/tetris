@@ -5,7 +5,8 @@ import {UIController} from './UIController.js';
 class Tetris {
 	constructor(parent) {
 		this.context = this;
-		this.wrap = document.querySelector(`.tetris${parent}`);
+		this.wrapName = `.tetris_wrap${parent}`;
+		this.wrap = document.querySelector(`${this.wrapName} .tetris`);
 		this.wrap.width = 240;
 		this.wrap.height = 400;
 		this.element = this.wrap.getContext('2d');
@@ -46,7 +47,7 @@ class Tetris {
 
 		this.getHighScore();
 		this.score = 0;
-		this.scoreWrap = document.querySelector(`.tetris${parent}_score`);
+		this.scoreWrap = document.querySelector(`${this.wrapName} .tetris_score`);
 		this.showScore();
 		this.drawFigure();
 	}
