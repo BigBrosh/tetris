@@ -15,20 +15,13 @@ export class UIController {
 	}
 
 	leftArrow(e) {
-		if (e.keyCode === 37)
-		{
-			if (this.figures.offsetX !== 0 &&
-				this.leftSideChecker())
-				this.figures.offsetX--;
-		}
+		if (e.keyCode === 37 && this.sideChecker(-1))
+			this.figures.offsetX--;
 	}
 
 	rightArrow(e) {
-		if (e.keyCode === 39)
-		{
-			if (this.rightSideChecker())
-				this.figures.offsetX++;
-		}
+		if (e.keyCode === 39 && this.sideChecker(1))
+			this.figures.offsetX++;
 	}
 
 	leftSideChecker() {
@@ -40,13 +33,13 @@ export class UIController {
 		return true;
 	}
 
-	rightSideChecker() {
+	sideChecker(side) {
 		let checker = true;
 
 		this.figures.currentFigure.forEach((row, y) => {
 			row.forEach((element, x) => {
-				if (element !== 0 && this.context.field[y + this.figures.offsetY][x + this.figures.offsetX + 1] !== 0 ||
-					element !== 0 && this.context.field[y + this.figures.offsetY][x + this.figures.offsetX + 1] === undefined)
+				if (element !== 0 && this.context.field[y + this.figures.offsetY][x + this.figures.offsetX + side] !== 0 ||
+					element !== 0 && this.context.field[y + this.figures.offsetY][x + this.figures.offsetX + side] === undefined)
 				{
 					checker = false;
 					return checker;
