@@ -41,15 +41,6 @@ export class UIController {
 			this.rotateFigure(1)
 	}
 
-	leftSideChecker() {
-		for (let row = 0; row < this.figures[this.figures.currentName].length; row++) {
-			if (this.figures[this.figures.currentName][row][0] !== 0 &&
-				this.context.field[row + this.figures.offsetY][this.figures.offsetX - 1] !== 0)
-				return false;
-		}
-		return true;
-	}
-
 	sideChecker(side) {
 		let checker = true;
 
