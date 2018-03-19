@@ -47,7 +47,10 @@ export class UIController {
 
 	downArrow(e) {
 		if (e.keyCode === 40)
+		{
+			this.figures.collideChecker();
 			this.figures.offsetY++;	
+		}
 	}
 
 	rotateLeft(e) {

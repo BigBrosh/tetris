@@ -99,6 +99,7 @@ class Tetris {
 		if (this.dropCounter > this.dropTime)
 		{
 			this.dropCounter = 0;
+			this.figures.collideChecker();
 			this.figures.offsetY++;			
 		}
 
